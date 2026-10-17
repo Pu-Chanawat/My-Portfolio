@@ -9,4 +9,4 @@
 A lightweight sandbox project created to experiment with AI-generated web design, version control via Git/GitHub, and static site deployment.
 
 ### 🌐 Live Demo
-👉 [คลิกเพื่อดูเว็บไซต์]([https://<your-username>.github.io/<repo-name>/](https://pu-chanawat.onrender.com/))
+👉 [คลิกเพื่อดูเว็บไซต์](https://<your-username>.github.io/<repo-name>/](https://pu-chanawat.onrender.com/)
