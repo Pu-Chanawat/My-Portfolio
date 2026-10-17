@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Comprog Solutions — Pugam</title>
+<meta name="description" content="Competitive programming solutions in C++ — source code and problem statements.">
+<meta name="color-scheme" content="light">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23008080'/><rect x='4' y='6' width='12' height='6' fill='%23e8a71c'/><rect x='4' y='10' width='24' height='16' fill='%23f5c542'/></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<header class="taskbar">
+  <div class="taskbar__inner">
+    <span class="taskbar__brand">
+      <span class="taskbar__brand-icon" aria-hidden="true">🖥️</span>
+      <span>Portfolio&nbsp;OS</span>
+    </span>
+    <span class="crumbs">
+      <a class="btn95" href="../index.html"><span aria-hidden="true">◀</span> Back to Desktop</a>
+      <span class="crumbs__path">C:\PORTFOLIO\Projects\Comprog_Solutions</span>
+    </span>
+  </div>
+</header>
+
+<main class="page-shell">
+
+  <!-- ===================================================================
+       Problem list
+       =================================================================== -->
+  <section class="window" aria-labelledby="list-title">
+    <div class="window__titlebar">
+      <span class="window__icon" aria-hidden="true">📁</span>
+      <span class="window__title" id="list-title">Comprog Solutions — Problem Set</span>
+      <div class="window__controls">
+        <button class="win-btn" type="button" data-win="min" title="Minimize" aria-label="Minimize window">_</button>
+        <button class="win-btn" type="button" data-win="max" title="Maximize" aria-label="Maximize window">□</button>
+        <button class="win-btn" type="button" data-win="close" title="Close" aria-label="Close window">✕</button>
+      </div>
+    </div>
+
+    <div class="window__toolbar">
+      <span class="pathbox">
+        <span aria-hidden="true">📂</span>
+        <span>C:\PORTFOLIO\Projects\Comprog_Solutions</span>
+      </span>
+    </div>
+
+    <div class="window__body window__body--flush">
+      <div class="table-scroll">
+        <table class="problem-table">
+          <caption class="visually-hidden">
+            Competitive programming problems, with source code and statement PDFs
+          </caption>
+          <thead>
+            <tr>
+              <th scope="col" class="col-id">ID</th>
+              <th scope="col">Problem</th>
+              <th scope="col">Level</th>
+              <th scope="col" class="col-actions">Actions</th>
+            </tr>
+          </thead>
+          <!-- rows are rendered by the script below -->
+          <tbody id="problemRows"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="win-status" aria-hidden="true">
+      <span class="win-status__cell win-status__cell--grow"><span id="rowCount">0</span> object(s)</span>
+      <span class="win-status__cell">Local disk (C:)</span>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       Source viewer
+       =================================================================== -->
+  <section class="window code-window" id="viewer" aria-labelledby="viewer-title">
+    <div class="window__titlebar">
+      <span class="window__icon" aria-hidden="true">⌨️</span>
+      <span class="window__title" id="viewer-title">Source Viewer</span>
+      <div class="window__controls">
+        <button class="win-btn" type="button" data-win="min" title="Minimize" aria-label="Minimize window">_</button>
+        <button class="win-btn" type="button" data-win="max" title="Maximize" aria-label="Maximize window">□</button>
+        <button class="win-btn" type="button" data-win="close" title="Close" aria-label="Close window">✕</button>
+      </div>
+    </div>
+
+    <div class="code-head">
+      <span class="code-head__name" id="codeName">—</span>
+      <span class="code-head__spacer"></span>
+
+      <button class="mini-btn" type="button" id="copyBtn">
+        <span aria-hidden="true">📋</span> Copy code
+      </button>
+
+      <a class="mini-btn" id="pdfBtn" href="#" download>
+        <span aria-hidden="true">📄</span> Download PDF
+      </a>
+    </div>
+
+    <div class="code-scroll">
+      <div class="code-body">
+        <pre class="code-gutter" id="codeGutter" aria-hidden="true"></pre>
+        <pre class="code-block" id="codeView"></pre>
+      </div>
+    </div>
+
+    <div class="win-status" aria-hidden="true">
+      <span class="win-status__cell win-status__cell--grow" id="lineStat">0 lines</span>
+      <span class="win-status__cell">C++17</span>
+      <span class="win-status__cell">UTF-8</span>
+    </div>
+  </section>
+
+  <div class="note-box">
+    <b>Tip:</b> problem-statement PDFs are looked up in <code>projects/pdf/</code>.
+    Drop your exported files there using the filenames listed in the table and the
+    download buttons will resolve automatically.
+  </div>
+
+  <div class="crumbs">
+    <a class="btn95" href="../index.html"><span aria-hidden="true">◀</span> Back to Desktop</a>
+  </div>
+
+</main>
+
+<footer class="deskbar">
+  <span class="btn95" aria-hidden="true"><span>🪟</span> Start</span>
+  <span class="deskbar__spacer"></span>
+  <span class="deskbar__clock" id="clock" aria-label="Current time">--:--</span>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+
+  /* ----------------------------------------------------------------
+     Problem data — add your own entries here.
+     `code` is plain C++ source; it is highlighted at render time.
+     Only use // line comments if you want the gutter to stay aligned.
+     ---------------------------------------------------------------- */
+  var PROBLEMS = [
+    {
+      id: "001",
+      title: "A + B",
+      topic: "Basic I/O",
+      level: "easy",
+      file: "001-a-plus-b.cpp",
+      pdf: "pdf/comprog-001-a-plus-b.pdf",
+      code: [
+        "// Problem 001: A + B",
+        "// Read two integers and print their sum.",
+        "#include <bits/stdc++.h>",
+        "using namespace std;",
+        "",
+        "int main() {",
+        "    ios::sync_with_stdio(false);",
+        "    cin.tie(nullptr);",
+        "",
+        "    long long a, b;",
+        "    if (!(cin >> a >> b)) return 0;",
+        "",
+        "    cout << a + b << \"\\n\";",
+        "    return 0;",
+        "}"
+      ].join("\n")
+    },
+    {
+      id: "002",
+      title: "Hello, World!",
+      topic: "Basic I/O",
+      level: "easy",
+      file: "002-hello-world.cpp",
+      pdf: "pdf/comprog-002-hello-world.pdf",
+      code: [
+        "// Problem 002: Hello, World!",
+        "#include <iostream>",
+        "using namespace std;",
+        "",
+        "int main() {",
+        "    cout << \"Hello, World!\" << endl;",
+        "    return 0;",
+        "}"
+      ].join("\n")
+    },
+    {
+      id: "003",
+      title: "Sum of N Numbers",
+      topic: "Loops",
+      level: "easy",
+      file: "003-sum-of-n.cpp",
+      pdf: "pdf/comprog-003-sum-of-n.pdf",
+      code: [
+        "// Problem 003: sum n integers read from stdin",
+        "#include <bits/stdc++.h>",
+        "using namespace std;",
+        "",
+        "int main() {",
+        "    int n;",
+        "    cin >> n;",
+        "",
+        "    long long total = 0;",
+        "    for (int i = 0; i < n; i++) {",
+        "        long long x;",
+        "        cin >> x;",
+        "        total += x;",
+        "    }",
+        "",
+        "    cout << total << \"\\n\";",
+        "    return 0;",
+        "}"
+      ].join("\n")
+    },
+    {
+      id: "004",
+      title: "Sorting an Array",
+      topic: "Sorting",
+      level: "medium",
+      file: "004-sorting.cpp",
+      pdf: "pdf/comprog-004-sorting.pdf",
+      code: [
+        "// Problem 004: sort n integers ascending",
+        "#include <bits/stdc++.h>",
+        "using namespace std;",
+        "",
+        "int main() {",
+        "    int n;",
+        "    cin >> n;",
+        "",
+        "    vector<int> a(n);",
+        "    for (int i = 0; i < n; i++) cin >> a[i];",
+        "",
+        "    sort(a.begin(), a.end());",
+        "",
+        "    for (int i = 0; i < n; i++) {",
+        "        if (i) cout << ' ';",
+        "        cout << a[i];",
+        "    }",
+        "    cout << \"\\n\";",
+        "    return 0;",
+        "}"
+      ].join("\n")
+    },
+    {
+      id: "005",
+      title: "Binary Search",
+      topic: "Divide & Conquer",
+      level: "hard",
+      file: "005-binary-search.cpp",
+      pdf: "pdf/comprog-005-binary-search.pdf",
+      code: [
+        "// Problem 005: binary search a sorted array",
+        "// Returns the index of target, or -1 when absent.",
+        "#include <bits/stdc++.h>",
+        "using namespace std;",
+        "",
+        "int main() {",
+        "    int n, target;",
+        "    cin >> n >> target;",
+        "",
+        "    vector<int> a(n);",
+        "    for (int i = 0; i < n; i++) cin >> a[i];",
+        "",
+        "    int lo = 0, hi = n - 1, found = -1;",
+        "    while (lo <= hi) {",
+        "        int mid = lo + (hi - lo) / 2;",
+        "        if (a[mid] == target) { found = mid; break; }",
+        "        if (a[mid] < target) lo = mid + 1;",
+        "        else                 hi = mid - 1;",
+        "    }",
+        "",
+        "    cout << found << \"\\n\";",
+        "    return 0;",
+        "}"
+      ].join("\n")
+    }
+  ];
+
+  /* ----------------------------------------------------------------
+     Minimal C++ highlighter (no dependencies)
+     ---------------------------------------------------------------- */
+  var CPP_KEYWORDS = [
+    "alignas", "alignof", "asm", "auto", "break", "case", "catch", "class",
+    "const", "constexpr", "const_cast", "continue", "decltype", "default",
+    "delete", "do", "dynamic_cast", "else", "enum", "explicit", "extern",
+    "false", "final", "for", "friend", "goto", "if", "inline", "mutable",
+    "namespace", "new", "noexcept", "nullptr", "operator", "override",
+    "private", "protected", "public", "register", "reinterpret_cast",
+    "return", "sizeof", "static", "static_assert", "static_cast", "struct",
+    "switch", "template", "this", "throw", "true", "try", "typedef", "typeid",
+    "typename", "union", "using", "virtual", "volatile", "while"
+  ];
+
+  var CPP_TYPES = [
+    "bool", "char", "double", "float", "int", "long", "short", "signed",
+    "unsigned", "void", "wchar_t", "size_t", "string", "vector", "map", "set",
+    "pair", "queue", "stack", "deque", "array", "tuple", "priority_queue",
+    "unordered_map", "unordered_set", "bitset", "istream", "ostream",
+    "ifstream", "ofstream", "stringstream"
+  ];
+
+  var TOKEN_RE = new RegExp(
+    [
+      "(\\/\\/[^\\n]*)",                                       // 1 line comment
+      "(\\/\\*[\\s\\S]*?\\*\\/)",                              // 2 block comment
+      "(^[ \\t]*#[^\\n]*)",                                    // 3 preprocessor
+      "(\"(?:\\\\.|[^\"\\\\])*\"|'(?:\\\\.|[^'\\\\])*')",      // 4 string / char
+      "\\b(" + CPP_KEYWORDS.join("|") + ")\\b",                // 5 keyword
+      "\\b(" + CPP_TYPES.join("|") + ")\\b",                   // 6 type
+      "\\b(\\d[\\w.]*)\\b",                                    // 7 number
+      "([A-Za-z_]\\w*)(?=\\s*\\()"                             // 8 call
+    ].join("|"),
+    "gm"
+  );
+
+  function escapeHtml(source) {
+    return source
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
+  }
+
+  function highlightCpp(source) {
+    return escapeHtml(source).replace(
+      TOKEN_RE,
+      function (match, comment, block, pre, str, keyword, type, num, fn) {
+        if (comment || block) return '<span class="tok-cmnt">' + match + "</span>";
+        if (pre)              return '<span class="tok-pre">'  + match + "</span>";
+        if (str)              return '<span class="tok-str">'  + match + "</span>";
+        if (keyword)          return '<span class="tok-key">'  + match + "</span>";
+        if (type)             return '<span class="tok-type">' + match + "</span>";
+        if (num)              return '<span class="tok-num">'  + match + "</span>";
+        if (fn)               return '<span class="tok-fn">'   + match + "</span>";
+        return match;
+      }
+    );
+  }
+
+  /* ----------------------------------------------------------------
+     Rendering
+     ---------------------------------------------------------------- */
+  var rowsEl     = document.getElementById("problemRows");
+  var rowCountEl = document.getElementById("rowCount");
+  var codeView   = document.getElementById("codeView");
+  var codeGutter = document.getElementById("codeGutter");
+  var codeName   = document.getElementById("codeName");
+  var lineStat   = document.getElementById("lineStat");
+  var pdfBtn     = document.getElementById("pdfBtn");
+  var copyBtn    = document.getElementById("copyBtn");
+
+  var current = null;
+
+  function cell(text, className) {
+    var td = document.createElement("td");
+    if (className) td.className = className;
+    td.textContent = text;
+    return td;
+  }
+
+  function renderTable() {
+    PROBLEMS.forEach(function (p) {
+      var tr = document.createElement("tr");
+      tr.dataset.id = p.id;
+
+      tr.appendChild(cell(p.id, "col-id"));
+
+      var nameCell = document.createElement("td");
+      var strong = document.createElement("strong");
+      strong.textContent = p.title;
+      nameCell.appendChild(strong);
+      var topic = document.createElement("div");
+      topic.style.fontSize = "12px";
+      topic.style.color = "#5a5a5a";
+      topic.textContent = p.topic;
+      nameCell.appendChild(topic);
+      tr.appendChild(nameCell);
+
+      var levelCell = document.createElement("td");
+      var pill = document.createElement("span");
+      pill.className = "pill pill--" + p.level;
+      pill.textContent = p.level.toUpperCase();
+      levelCell.appendChild(pill);
+      tr.appendChild(levelCell);
+
+      var actions = document.createElement("td");
+      actions.className = "col-actions";
+
+      var view = document.createElement("button");
+      view.type = "button";
+      view.className = "mini-btn";
+      view.textContent = "View code";
+      view.addEventListener("click", function () {
+        show(p, tr);
+      });
+      actions.appendChild(view);
+
+      actions.appendChild(document.createTextNode(" "));
+
+      var pdf = document.createElement("a");
+      pdf.className = "mini-btn";
+      pdf.href = p.pdf;
+      pdf.setAttribute("download", "");
+      pdf.textContent = "PDF";
+      actions.appendChild(pdf);
+
+      tr.appendChild(actions);
+      rowsEl.appendChild(tr);
+    });
+
+    rowCountEl.textContent = String(PROBLEMS.length);
+  }
+
+  function lineNumbers(count) {
+    var out = [];
+    for (var i = 1; i <= count; i++) out.push(String(i));
+    return out.join("\n");
+  }
+
+  function show(problem, row) {
+    current = problem;
+
+    codeView.innerHTML = highlightCpp(problem.code);
+
+    var lineCount = problem.code.split("\n").length;
+    codeGutter.textContent = lineNumbers(lineCount);
+
+    codeName.textContent = problem.file;
+    lineStat.textContent = lineCount + " lines";
+
+    pdfBtn.href = problem.pdf;
+    pdfBtn.setAttribute("download", problem.file.replace(/\.cpp$/, ".pdf"));
+
+    Array.prototype.forEach.call(rowsEl.children, function (tr) {
+      tr.classList.toggle("is-active", tr === row);
+    });
+  }
+
+  function copyText(text, onDone) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(onDone, fallback);
+    } else {
+      fallback();
+    }
+
+    function fallback() {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      try { document.execCommand("copy"); } catch (e) { /* ignore */ }
+      document.body.removeChild(ta);
+      onDone();
+    }
+  }
+
+  copyBtn.addEventListener("click", function () {
+    if (!current) return;
+    var label = copyBtn.innerHTML;
+    copyText(current.code, function () {
+      copyBtn.innerHTML = '<span class="copy-flash">✔ Copied</span>';
+      window.setTimeout(function () { copyBtn.innerHTML = label; }, 1400);
+    });
+  });
+
+  /* boot */
+  renderTable();
+  if (PROBLEMS.length) {
+    show(PROBLEMS[0], rowsEl.firstElementChild);
+  }
+})();
+</script>
+<!-- shared retro-UI behaviour: window buttons + deskbar clock -->
+<script src="../script.js" defer></script>
+</body>
+</html>

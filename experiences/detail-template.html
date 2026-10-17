@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Event Record — Pugam</title>
+<meta name="description" content="Detail page for a competition or activity — story, certificate, and event photos.">
+<meta name="color-scheme" content="light">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23008080'/><rect x='6' y='8' width='20' height='16' rx='2' fill='%23c0c0c0' stroke='%23000' stroke-width='2'/><rect x='6' y='8' width='20' height='4' fill='%23000080'/></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+<header class="taskbar">
+  <div class="taskbar__inner">
+    <span class="taskbar__brand">
+      <span class="taskbar__brand-icon" aria-hidden="true">🖥️</span>
+      <span>Portfolio&nbsp;OS</span>
+    </span>
+    <span class="crumbs">
+      <a class="btn95" href="../index.html"><span aria-hidden="true">◀</span> Back to Desktop</a>
+      <span class="crumbs__path">C:\PORTFOLIO\Experiences\record</span>
+    </span>
+  </div>
+</header>
+
+<main class="page-shell">
+
+  <!--
+    ====================================================================
+    TEMPLATE — duplicate this file once per activity
+    ====================================================================
+    1. Copy  experiences/detail-template.html  →  experiences/ctf-2025.html
+    2. Replace every text block marked "EDIT".
+    3. Point the matching card in index.html at the new file.
+    ====================================================================
+  -->
+
+  <!-- ===================================================================
+       Event header + story
+       =================================================================== -->
+  <article class="window">
+    <div class="window__titlebar">
+      <span class="window__icon" aria-hidden="true">🏆</span>
+      <span class="window__title">Event_Record #001 — Cybersecurity CTF Competition</span>
+      <div class="window__controls">
+        <button class="win-btn" type="button" data-win="min" title="Minimize" aria-label="Minimize window">_</button>
+        <button class="win-btn" type="button" data-win="max" title="Maximize" aria-label="Maximize window">□</button>
+        <button class="win-btn" type="button" data-win="close" title="Close" aria-label="Close window">✕</button>
+      </div>
+    </div>
+
+    <!-- EDIT: banner. Swap the gradient for a photo with a background-image style. -->
+    <div class="detail-hero">
+      <p class="detail-hero__kicker">RECORD #001 · SECURITY</p>
+      <h1>Cybersecurity CTF Competition 2025</h1>
+      <p class="detail-hero__meta">14 June 2025 · Bangkok · Team of 2 · Ranked Top 10</p>
+    </div>
+
+    <div class="detail-body">
+      <!-- EDIT: the short version -->
+      <h3>Overview</h3>
+      <p>
+        A one-day capture-the-flag event with roughly thirty teams competing across
+        web exploitation, forensics, cryptography, and reverse engineering categories.
+        My teammate and I worked through the web and forensics tracks, submitting flags
+        until the closing buzzer.
+      </p>
+
+      <h3>My role</h3>
+      <ul class="checklist">
+        <li>Reconnaissance and attack-surface mapping for the web challenges</li>
+        <li>Manual exploitation of a broken access-control flaw</li>
+        <li>File-carving and metadata analysis for two forensics challenges</li>
+        <li>Time-boxing the strategy so we never lost a whole hour on one flag</li>
+      </ul>
+
+      <h3>What I learned</h3>
+      <p>
+        Speed mattered less than process. The flags we missed were the ones where we
+        skipped writing down what we had already tried. Since then I keep a scratch
+        log for every challenge — it has paid off in every event after.
+      </p>
+      <p>
+        I also came away with a much better feel for how quickly a small
+        misconfiguration in a web app becomes a full compromise.
+      </p>
+
+      <h3>Timeline</h3>
+      <ul class="checklist">
+        <li><b>09:00</b> — Registration and team briefing</li>
+        <li><b>10:00</b> — Competition opens; 24 challenges released</li>
+        <li><b>13:30</b> — First web flag captured</li>
+        <li><b>16:00</b> — Forensics category cleared</li>
+        <li><b>17:00</b> — Buzzer; results announced</li>
+      </ul>
+
+      <div class="note-box">
+        <b>Template note:</b> this page is a starting point. Delete any section you
+        don't need — the layout reflows on its own.
+      </div>
+    </div>
+
+    <div class="win-status" aria-hidden="true">
+      <span class="win-status__cell win-status__cell--grow">Record #001</span>
+      <span class="win-status__cell">Read-only</span>
+    </div>
+  </article>
+
+  <!-- ===================================================================
+       Certificate
+       =================================================================== -->
+  <section class="window">
+    <div class="window__titlebar">
+      <span class="window__icon" aria-hidden="true">📜</span>
+      <span class="window__title">Certificate.cert</span>
+      <div class="window__controls">
+        <button class="win-btn" type="button" data-win="min" title="Minimize" aria-label="Minimize window">_</button>
+        <button class="win-btn" type="button" data-win="max" title="Maximize" aria-label="Maximize window">□</button>
+        <button class="win-btn" type="button" data-win="close" title="Close" aria-label="Close window">✕</button>
+      </div>
+    </div>
+
+    <div class="window__body">
+      <div class="gallery">
+        <figure class="gallery__item" style="margin:0">
+          <div class="gallery__frame">
+            <!--
+              Replace the placeholder text with a real image:
+              <img src="../assets/img/cert-ctf-2025.jpg" alt="CTF 2025 certificate">
+            -->
+            Certificate image placeholder<br>(4:3)
+          </div>
+          <figcaption class="gallery__label">Certificate of participation</figcaption>
+        </figure>
+
+        <figure class="gallery__item" style="margin:0">
+          <div class="gallery__frame">
+            Result sheet placeholder<br>(4:3)
+          </div>
+          <figcaption class="gallery__label">Final standings</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================================================================
+       Photo gallery
+       =================================================================== -->
+  <section class="window">
+    <div class="window__titlebar">
+      <span class="window__icon" aria-hidden="true">🖼️</span>
+      <span class="window__title">Gallery — 4 item(s)</span>
+      <div class="window__controls">
+        <button class="win-btn" type="button" data-win="min" title="Minimize" aria-label="Minimize window">_</button>
+        <button class="win-btn" type="button" data-win="max" title="Maximize" aria-label="Maximize window">□</button>
+        <button class="win-btn" type="button" data-win="close" title="Close" aria-label="Close window">✕</button>
+      </div>
+    </div>
+
+    <div class="window__body">
+      <div class="gallery">
+        <figure class="gallery__item" style="margin:0">
+          <div class="gallery__frame">Photo placeholder<br>(4:3)</div>
+          <figcaption class="gallery__label">Opening session</figcaption>
+        </figure>
+        <figure class="gallery__item" style="margin:0">
+          <div class="gallery__frame">Photo placeholder<br>(4:3)</div>
+          <figcaption class="gallery__label">Working the web track</figcaption>
+        </figure>
+        <figure class="gallery__item" style="margin:0">
+          <div class="gallery__frame">Photo placeholder<br>(4:3)</div>
+          <figcaption class="gallery__label">Team at the board</figcaption>
+        </figure>
+        <figure class="gallery__item" style="margin:0">
+          <div class="gallery__frame">Photo placeholder<br>(4:3)</div>
+          <figcaption class="gallery__label">Award ceremony</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="win-status" aria-hidden="true">
+      <span class="win-status__cell win-status__cell--grow">4 object(s)</span>
+      <span class="win-status__cell">My Computer</span>
+    </div>
+  </section>
+
+  <div class="crumbs">
+    <a class="btn95" href="../index.html"><span aria-hidden="true">◀</span> Back to Desktop</a>
+  </div>
+
+</main>
+
+<footer class="deskbar">
+  <span class="btn95" aria-hidden="true"><span>🪟</span> Start</span>
+  <span class="deskbar__spacer"></span>
+  <span class="deskbar__clock" id="clock" aria-label="Current time">--:--</span>
+</footer>
+
+<!-- shared retro-UI behaviour: window buttons + deskbar clock -->
+<script src="../script.js" defer></script>
+</body>
+</html>
