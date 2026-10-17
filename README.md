@@ -1,12 +1,5 @@
-# Portfolio Sandbox 💻
+# Sandbox Portfolio 🧪
 
-> พื้นที่ทดลองสร้างและ Deploy เว็บไซต์ด้วย AI
+สวัสดีครับ! โปรเจกต์นี้สร้างขึ้นเพื่อทดลองให้ AI ช่วย Gen หน้าเว็บ และใช้ทดสอบการอัปโค้ดขึ้น GitHub พร้อม Deploy ออนไลน์แบบขำๆ ครับ ไม่ได้มีจุดประสงค์ทางการค้าแต่อย่างใด
 
-### 🇹🇭 เกี่ยวกับโปรเจกต์
-สวัสดีทุกคนที่เข้ามาดูครับ! โปรเจกต์นี้ทำขึ้นเพื่อทดลองสนุกๆ ในการให้ AI ช่วยออกแบบและเขียนโค้ดหน้าเว็บ จากนั้นนำมาฝึกใช้งาน Git/GitHub และลอง Deploy เว็บไซต์ดูครับ
-
-### 🇬🇧 About
-A lightweight sandbox project created to experiment with AI-generated web design, version control via Git/GitHub, and static site deployment.
-
-### 🌐 Live Demo
-👉 [คลิกเพื่อดูเว็บไซต์](https://<your-username>.github.io/<repo-name>/](https://pu-chanawat.onrender.com/)
+🌐 **Live Demo:** [pu-chanawat.onrender.com](https://pu-chanawat.onrender.com/)
