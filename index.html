@@ -1,230 +1,232 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Pugam — Portfolio</title>
-<meta name="description" content="Personal portfolio of a Computer Engineering student — projects, competitions, and contact. Styled as a vintage 90s desktop OS.">
-<meta name="color-scheme" content="light">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pugam — Portfolio</title>
+  <meta name="description"
+    content="Personal portfolio of a Computer Engineering student — projects, competitions, and contact. Styled as a vintage 90s desktop OS.">
+  <meta name="color-scheme" content="light">
 
-<!-- Open Graph / social preview -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="Pugam — Portfolio">
-<meta property="og:description" content="Computer Engineering Student / Developer. Projects, CTF write-ups, and contact.">
+  <!-- Open Graph / social preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pugam — Portfolio">
+  <meta property="og:description"
+    content="Computer Engineering Student / Developer. Projects, CTF write-ups, and contact.">
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23008080'/><rect x='6' y='8' width='20' height='16' rx='2' fill='%23c0c0c0' stroke='%23000' stroke-width='2'/><rect x='6' y='8' width='20' height='4' fill='%23000080'/></svg>">
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23008080'/><rect x='6' y='8' width='20' height='16' rx='2' fill='%23c0c0c0' stroke='%23000' stroke-width='2'/><rect x='6' y='8' width='20' height='4' fill='%23000080'/></svg>">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<!-- Terminal typeface. Falls back to a monospace stack if the CDN is unreachable. -->
-<link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Terminal typeface. Falls back to a monospace stack if the CDN is unreachable. -->
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<!-- =====================================================================
+  <!-- =====================================================================
      Top taskbar — jumps between windows
      ===================================================================== -->
-<header class="taskbar">
-  <div class="taskbar__inner">
-    <span class="taskbar__brand">
-      <span class="taskbar__brand-icon" aria-hidden="true">🖥️</span>
-      <span>Portfolio&nbsp;OS</span>
-    </span>
+  <header class="taskbar">
+    <div class="taskbar__inner">
+      <span class="taskbar__brand">
+        <span class="taskbar__brand-icon" aria-hidden="true">🖥️</span>
+        <span>My Profile</span>
+      </span>
 
-    <nav class="taskbar__nav" aria-label="Section navigation" style="display:flex;gap:6px;flex:none">
-      <a class="task-tab is-active" href="#intro" aria-current="true">Intro</a>
-      <a class="task-tab" href="#about">About</a>
-      <a class="task-tab" href="#project">Project</a>
-      <a class="task-tab" href="#exper">Exper</a>
-      <a class="task-tab" href="#contact">Contact</a>
-    </nav>
-  </div>
-</header>
+      <nav class="taskbar__nav" aria-label="Section navigation" style="display:flex;gap:6px;flex:none">
+        <a class="task-tab is-active" href="#intro" aria-current="true">Intro</a>
+        <a class="task-tab" href="#about">About</a>
+        <a class="task-tab" href="#project">Project</a>
+        <a class="task-tab" href="#exper">Exper</a>
+        <a class="task-tab" href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-<main class="desktop">
+  <main class="desktop">
 
-  <!-- ===================================================================
+    <!-- ===================================================================
        SECTION 1 — INTRO
        =================================================================== -->
-  <section class="section" id="intro" aria-labelledby="intro-title">
-    <h2 class="visually-hidden" id="intro-title">Introduction</h2>
+    <section class="section" id="intro" aria-labelledby="intro-title">
+      <h2 class="visually-hidden" id="intro-title">Introduction</h2>
 
-    <div class="window" data-window>
-      <div class="window__titlebar">
-        <span class="window__icon" aria-hidden="true">🖥️</span>
-        <span class="window__title">Welcome.exe</span>
-        <div class="window__controls">
-          <button class="win-btn" type="button" data-win="min" title="Minimize" aria-label="Minimize window">_</button>
-          <button class="win-btn" type="button" data-win="max" title="Maximize" aria-label="Maximize window">□</button>
-          <button class="win-btn" type="button" data-win="close" title="Close" aria-label="Close window">✕</button>
-        </div>
-      </div>
-
-      <div class="window__body">
-        <div class="hero">
-          <!-- portrait -->
-          <div class="hero__avatar">
-            <div class="avatar-frame sunken">
-              <!-- EDIT: replace with your own photo (square image works best) -->
-              <img src="assets/img/avatar.svg" alt="Profile picture" width="256" height="256">
-            </div>
-            <p class="avatar-caption">user@portfolio:~$</p>
-          </div>
-
-          <!-- terminal -->
-          <div class="terminal sunken">
-            <div class="terminal__path">C:\PORTFOLIO\intro.txt</div>
-            <div class="terminal__screen">
-              <pre class="terminal__out" id="termOut" aria-live="polite" aria-label="Introduction"></pre>
-              <span class="term-caret" id="termCaret" aria-hidden="true"></span>
-            </div>
-            <noscript>
-              <pre class="terminal__out" style="padding:12px 14px">Welcome to my portfolio!
-
-&gt; Name   : Pugam
-&gt; Job    : Computer Engineering Student / Developer
-&gt; Slogan : Code with curiosity, build with care.</pre>
-            </noscript>
-          </div>
-        </div>
-
-        <p class="hero__hint">&gt; Scroll down — or use the taskbar tabs above — to explore.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================================================================
-       SECTION 2 — ABOUT
-       =================================================================== -->
-  <section class="section" id="about" aria-labelledby="about-title">
-    <h2 class="visually-hidden" id="about-title">About me</h2>
-
-    <div class="section__stack">
-
-      <!-- Notepad-style biography -->
       <div class="window" data-window>
         <div class="window__titlebar">
-          <span class="window__icon" aria-hidden="true">📝</span>
-          <span class="window__title">About_Me.txt — Notepad</span>
+          <span class="window__icon" aria-hidden="true">🖥️</span>
+          <span class="window__title">Welcome.exe</span>
           <div class="window__controls">
-            <button class="win-btn" type="button" data-win="min" title="Minimize" aria-label="Minimize window">_</button>
-            <button class="win-btn" type="button" data-win="max" title="Maximize" aria-label="Maximize window">□</button>
+            <button class="win-btn" type="button" data-win="min" title="Minimize"
+              aria-label="Minimize window">_</button>
+            <button class="win-btn" type="button" data-win="max" title="Maximize"
+              aria-label="Maximize window">□</button>
             <button class="win-btn" type="button" data-win="close" title="Close" aria-label="Close window">✕</button>
           </div>
         </div>
 
-        <div class="menubar" aria-hidden="true">
-          <span class="menubar__item"><u>F</u>ile</span>
-          <span class="menubar__item"><u>E</u>dit</span>
-          <span class="menubar__item">F<u>o</u>rmat</span>
-          <span class="menubar__item"><u>V</u>iew</span>
-          <span class="menubar__item"><u>H</u>elp</span>
+        <div class="window__body">
+          <div class="hero">
+            <!-- portrait -->
+            <div class="hero__avatar">
+              <div class="avatar-frame sunken">
+                <!-- EDIT: replace with your own photo (square image works best) -->
+                <img src="assets/img/myface.jpg" alt="Profile picture" width="256" height="256">
+              </div>
+              <p class="avatar-caption">pu101@portfolio:~$</p>
+            </div>
+
+            <!-- terminal -->
+            <div class="terminal sunken">
+              <div class="terminal__path">C:\PORTFOLIO\intro.txt</div>
+              <div class="terminal__screen">
+                <pre class="terminal__out" id="termOut" aria-live="polite" aria-label="Introduction"></pre>
+                <span class="term-caret" id="termCaret" aria-hidden="true"></span>
+              </div>
+              <noscript>
+                <pre class="terminal__out" style="padding:12px 14px">Welcome to my portfolio!
+                &gt; Name   : Chanawat Chobtumkit
+                &gt; Job    : Computer Engineering Student / Developer
+                &gt; Slogan : Code with curiosity, build with care.</pre>
+              </noscript>
+            </div>
+          </div>
+
+          <p class="hero__hint">&gt; Scroll down — or use the taskbar tabs above — to explore.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+       SECTION 2 — ABOUT
+       =================================================================== -->
+    <section class="section" id="about" aria-labelledby="about-title">
+      <h2 class="visually-hidden" id="about-title">About me</h2>
+
+      <div class="section__stack">
+
+        <!-- Notepad-style biography -->
+        <div class="window" data-window>
+          <div class="window__titlebar">
+            <span class="window__icon" aria-hidden="true">📝</span>
+            <span class="window__title">About_Me.txt — Notepad</span>
+            <div class="window__controls">
+              <button class="win-btn" type="button" data-win="min" title="Minimize"
+                aria-label="Minimize window">_</button>
+              <button class="win-btn" type="button" data-win="max" title="Maximize"
+                aria-label="Maximize window">□</button>
+              <button class="win-btn" type="button" data-win="close" title="Close" aria-label="Close window">✕</button>
+            </div>
+          </div>
+
+          <div class="menubar" aria-hidden="true">
+            <span class="menubar__item"><u>F</u>ile</span>
+            <span class="menubar__item"><u>E</u>dit</span>
+            <span class="menubar__item">F<u>o</u>rmat</span>
+            <span class="menubar__item"><u>V</u>iew</span>
+            <span class="menubar__item"><u>H</u>elp</span>
+          </div>
+
+          <div class="window__body">
+            <div class="notepad__page sunken">
+              <!-- EDIT: your own story -->
+              <h3>Hello, everyone 👋</h3>
+              <p>
+                I'm a college student currently exploring different things, 
+                especially integrating AI into my workflows and trying out new technologies.
+              </p>
+
+              <h3>Education</h3>
+              <p class="kv"><b>Currently :</b> B.Eng. Student in Computer Engineering and Digital Technology (CEDT)</p>
+              <p class="kv"><b>University :</b> Chulalongkorn University</p>
+
+              <h3>What I'm into</h3>
+              <ul>
+                <li>Competitive programming and algorithmic problem solving</li>
+                <li>Leveraging AI to optimize daily workflows and solve various problems</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="win-status" aria-hidden="true">
+            <span class="win-status__cell win-status__cell--grow">For Help, press F1</span>
+            <span class="win-status__cell">Ln 1, Col 1</span>
+          </div>
         </div>
 
-        <div class="window__body">
-          <div class="notepad__page sunken">
-            <!-- EDIT: your own story -->
-            <h3>Hello, world 👋</h3>
-            <p>
-              I'm a Computer Engineering student who enjoys the moment a messy problem
-              finally clicks. I spend my time somewhere between low-level C++, Linux
-              terminals, and building things for the web — and I like understanding
-              how systems work underneath, not just how to use them.
-            </p>
+        <!-- Skill inventory -->
+        <div class="window" data-window>
+          <div class="window__titlebar">
+            <span class="window__icon" aria-hidden="true">🎒</span>
+            <span class="window__title">Skills_Inventory.dat</span>
+            <div class="window__controls">
+              <button class="win-btn" type="button" data-win="min" title="Minimize"
+                aria-label="Minimize window">_</button>
+              <button class="win-btn" type="button" data-win="max" title="Maximize"
+                aria-label="Maximize window">□</button>
+              <button class="win-btn" type="button" data-win="close" title="Close" aria-label="Close window">✕</button>
+            </div>
+          </div>
 
-            <h3>Education</h3>
-            <p class="kv"><b>Degree:</b> B.Eng. Computer Engineering</p>
-            <p class="kv"><b>Focus:</b> Programming · Networking · Cybersecurity</p>
-            <p class="kv"><b>Currently:</b> sharpening data structures &amp; algorithms</p>
-
-            <h3>What I'm into</h3>
-            <ul>
-              <li>Competitive programming and algorithmic problem solving</li>
-              <li>Cybersecurity — especially capture-the-flag challenges</li>
-              <li>Linux, self-hosting, and automation</li>
-              <li>Clean, readable code and good documentation</li>
+          <div class="window__body">
+            <ul class="skill-grid" style="list-style:none;padding:0;margin:0">
+              <!-- EDIT: swap these for your own stack -->
+              <li class="skill"><span class="skill__badge" aria-hidden="true">C++</span><span class="skill__body"><span
+                    class="skill__name">C++</span><span class="skill__note"></span></span></li>
+              <li class="skill"><span class="skill__badge" aria-hidden="true">$</span><span class="skill__body"><span
+                    class="skill__name">Linux</span><span class="skill__note"></span></span></li>
             </ul>
           </div>
         </div>
 
-        <div class="win-status" aria-hidden="true">
-          <span class="win-status__cell win-status__cell--grow">For Help, press F1</span>
-          <span class="win-status__cell">Ln 1, Col 1</span>
-        </div>
       </div>
+    </section>
 
-      <!-- Skill inventory -->
+    <!-- ===================================================================
+       SECTION 3 — PROJECTS
+       =================================================================== -->
+    <section class="section" id="project" aria-labelledby="project-title">
+      <h2 class="visually-hidden" id="project-title">Projects</h2>
+
       <div class="window" data-window>
         <div class="window__titlebar">
-          <span class="window__icon" aria-hidden="true">🎒</span>
-          <span class="window__title">Skills_Inventory.dat</span>
+          <span class="window__icon" aria-hidden="true">📁</span>
+          <span class="window__title">C:\PORTFOLIO\Projects</span>
           <div class="window__controls">
-            <button class="win-btn" type="button" data-win="min" title="Minimize" aria-label="Minimize window">_</button>
-            <button class="win-btn" type="button" data-win="max" title="Maximize" aria-label="Maximize window">□</button>
+            <button class="win-btn" type="button" data-win="min" title="Minimize"
+              aria-label="Minimize window">_</button>
+            <button class="win-btn" type="button" data-win="max" title="Maximize"
+              aria-label="Maximize window">□</button>
             <button class="win-btn" type="button" data-win="close" title="Close" aria-label="Close window">✕</button>
           </div>
         </div>
 
-        <div class="window__body">
-          <ul class="skill-grid" style="list-style:none;padding:0;margin:0">
-            <!-- EDIT: swap these for your own stack -->
-            <li class="skill"><span class="skill__badge" aria-hidden="true">C++</span><span class="skill__body"><span class="skill__name">C / C++</span><span class="skill__note">Algorithms &amp; DSA</span></span></li>
-            <li class="skill"><span class="skill__badge" aria-hidden="true">Py</span><span class="skill__body"><span class="skill__name">Python</span><span class="skill__note">Scripting &amp; tooling</span></span></li>
-            <li class="skill"><span class="skill__badge" aria-hidden="true">JS</span><span class="skill__body"><span class="skill__name">Web Dev</span><span class="skill__note">HTML · CSS · JS</span></span></li>
-            <li class="skill"><span class="skill__badge" aria-hidden="true">$</span><span class="skill__body"><span class="skill__name">Linux</span><span class="skill__note">Shell &amp; sysadmin</span></span></li>
-            <li class="skill"><span class="skill__badge" aria-hidden="true">Git</span><span class="skill__body"><span class="skill__name">Git / GitHub</span><span class="skill__note">Version control</span></span></li>
-            <li class="skill"><span class="skill__badge" aria-hidden="true">SQL</span><span class="skill__body"><span class="skill__name">Databases</span><span class="skill__note">SQL basics</span></span></li>
-            <li class="skill"><span class="skill__badge" aria-hidden="true">Net</span><span class="skill__body"><span class="skill__name">Networking</span><span class="skill__note">TCP/IP, packet analysis</span></span></li>
-            <li class="skill"><span class="skill__badge" aria-hidden="true">Sec</span><span class="skill__body"><span class="skill__name">Security</span><span class="skill__note">CTF &amp; recon</span></span></li>
-          </ul>
+        <div class="window__toolbar">
+          <span class="pathbox">
+            <span aria-hidden="true">📂</span>
+            <span>C:\PORTFOLIO\Projects</span>
+          </span>
         </div>
-      </div>
 
-    </div>
-  </section>
+        <div class="window__body window__body--flush">
+          <div class="folder-grid">
 
-  <!-- ===================================================================
-       SECTION 3 — PROJECTS
-       =================================================================== -->
-  <section class="section" id="project" aria-labelledby="project-title">
-    <h2 class="visually-hidden" id="project-title">Projects</h2>
+            <!-- Each folder links to its own detail page -->
+            <a class="folder" href="projects/comprog.html">
+              <svg class="folder__icon" viewBox="0 0 32 28" aria-hidden="true" focusable="false">
+                <rect x="2" y="4" width="11" height="5" rx="1" fill="#e8a71c" stroke="#4a3200" stroke-width="1.6" />
+                <rect x="2" y="7" width="28" height="19" rx="1.5" fill="#f5c542" stroke="#4a3200" stroke-width="1.6" />
+                <rect x="2" y="7" width="28" height="5" fill="#ffe08a" opacity=".55" />
+                <line x1="2" y1="12.5" x2="30" y2="12.5" stroke="#4a3200" stroke-width="1.2" />
+              </svg>
+              <span class="folder__name">Comprog Solutions</span>
+              <span class="folder__meta">5 problems · C++</span>
+            </a>
 
-    <div class="window" data-window>
-      <div class="window__titlebar">
-        <span class="window__icon" aria-hidden="true">📁</span>
-        <span class="window__title">C:\PORTFOLIO\Projects</span>
-        <div class="window__controls">
-          <button class="win-btn" type="button" data-win="min" title="Minimize" aria-label="Minimize window">_</button>
-          <button class="win-btn" type="button" data-win="max" title="Maximize" aria-label="Maximize window">□</button>
-          <button class="win-btn" type="button" data-win="close" title="Close" aria-label="Close window">✕</button>
-        </div>
-      </div>
-
-      <div class="window__toolbar">
-        <span class="pathbox">
-          <span aria-hidden="true">📂</span>
-          <span>C:\PORTFOLIO\Projects</span>
-        </span>
-      </div>
-
-      <div class="window__body window__body--flush">
-        <div class="folder-grid">
-
-          <!-- Each folder links to its own detail page -->
-          <a class="folder" href="projects/comprog.html">
-            <svg class="folder__icon" viewBox="0 0 32 28" aria-hidden="true" focusable="false">
-              <rect x="2" y="4" width="11" height="5" rx="1" fill="#e8a71c" stroke="#4a3200" stroke-width="1.6"/>
-              <rect x="2" y="7" width="28" height="19" rx="1.5" fill="#f5c542" stroke="#4a3200" stroke-width="1.6"/>
-              <rect x="2" y="7" width="28" height="5" fill="#ffe08a" opacity=".55"/>
-              <line x1="2" y1="12.5" x2="30" y2="12.5" stroke="#4a3200" stroke-width="1.2"/>
-            </svg>
-            <span class="folder__name">Comprog Solutions</span>
-            <span class="folder__meta">5 problems · C++</span>
-          </a>
-
-          <a class="folder" href="projects/comprog.html">
+            <!-- <a class="folder" href="projects/comprog.html">
             <svg class="folder__icon" viewBox="0 0 32 28" aria-hidden="true" focusable="false">
               <rect x="2" y="4" width="11" height="5" rx="1" fill="#e8a71c" stroke="#4a3200" stroke-width="1.6"/>
               <rect x="2" y="7" width="28" height="19" rx="1.5" fill="#f5c542" stroke="#4a3200" stroke-width="1.6"/>
@@ -233,62 +235,63 @@
             </svg>
             <span class="folder__name">Web Projects</span>
             <span class="folder__meta">HTML · CSS · JS</span>
-          </a>
+          </a> -->
 
-          <a class="folder" href="projects/comprog.html">
-            <svg class="folder__icon" viewBox="0 0 32 28" aria-hidden="true" focusable="false">
-              <rect x="2" y="4" width="11" height="5" rx="1" fill="#e8a71c" stroke="#4a3200" stroke-width="1.6"/>
-              <rect x="2" y="7" width="28" height="19" rx="1.5" fill="#f5c542" stroke="#4a3200" stroke-width="1.6"/>
-              <rect x="2" y="7" width="28" height="5" fill="#ffe08a" opacity=".55"/>
-              <line x1="2" y1="12.5" x2="30" y2="12.5" stroke="#4a3200" stroke-width="1.2"/>
-            </svg>
-            <span class="folder__name">Networking Lab</span>
-            <span class="folder__meta">Reports &amp; configs</span>
-          </a>
+          </div>
+        </div>
 
-          <a class="folder" href="projects/comprog.html">
-            <svg class="folder__icon" viewBox="0 0 32 28" aria-hidden="true" focusable="false">
-              <rect x="2" y="4" width="11" height="5" rx="1" fill="#e8a71c" stroke="#4a3200" stroke-width="1.6"/>
-              <rect x="2" y="7" width="28" height="19" rx="1.5" fill="#f5c542" stroke="#4a3200" stroke-width="1.6"/>
-              <rect x="2" y="7" width="28" height="5" fill="#ffe08a" opacity=".55"/>
-              <line x1="2" y1="12.5" x2="30" y2="12.5" stroke="#4a3200" stroke-width="1.2"/>
-            </svg>
-            <span class="folder__name">CTF Write-ups</span>
-            <span class="folder__meta">Notes &amp; scripts</span>
-          </a>
-
+        <div class="win-status" aria-hidden="true">
+          <span class="win-status__cell win-status__cell--grow">4 object(s)</span>
+          <span class="win-status__cell">Local disk (C:)</span>
         </div>
       </div>
+    </section>
 
-      <div class="win-status" aria-hidden="true">
-        <span class="win-status__cell win-status__cell--grow">4 object(s)</span>
-        <span class="win-status__cell">Local disk (C:)</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================================================================
+    <!-- ===================================================================
        SECTION 4 — EXPERIENCE
        =================================================================== -->
-  <section class="section" id="exper" aria-labelledby="exper-title">
-    <h2 class="visually-hidden" id="exper-title">Experience and competitions</h2>
+    <section class="section" id="exper" aria-labelledby="exper-title">
+      <h2 class="visually-hidden" id="exper-title">Experience and competitions</h2>
 
-    <div class="window" data-window>
-      <div class="window__titlebar">
-        <span class="window__icon" aria-hidden="true">🏆</span>
-        <span class="window__title">Event_Log.db — Viewer</span>
-        <div class="window__controls">
-          <button class="win-btn" type="button" data-win="min" title="Minimize" aria-label="Minimize window">_</button>
-          <button class="win-btn" type="button" data-win="max" title="Maximize" aria-label="Maximize window">□</button>
-          <button class="win-btn" type="button" data-win="close" title="Close" aria-label="Close window">✕</button>
+      <div class="window" data-window>
+        <div class="window__titlebar">
+          <span class="window__icon" aria-hidden="true">🏆</span>
+          <span class="window__title">Experience - Viewer</span>
+          <div class="window__controls">
+            <button class="win-btn" type="button" data-win="min" title="Minimize"
+              aria-label="Minimize window">_</button>
+            <button class="win-btn" type="button" data-win="max" title="Maximize"
+              aria-label="Maximize window">□</button>
+            <button class="win-btn" type="button" data-win="close" title="Close" aria-label="Close window">✕</button>
+          </div>
         </div>
-      </div>
 
-      <div class="window__body">
-        <div class="event-list">
+        <div class="window__body">
+          <div class="event-list">
 
-          <!-- EDIT: one <a class="event"> block per activity -->
-          <a class="event" href="experiences/detail-template.html">
+            <!-- EDIT: one <a class="event"> block per activity -->
+
+            <a class="event" href="">
+              <span class="event__icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" focusable="false" width="24" height="24">
+                  <!-- เส้นแนวนอนและแนวตั้งตัดกันเป็นรูป + -->
+                  <path d="M12 5v14M5 12h14" fill="none" stroke="#2b6cb0" stroke-width="2.5" stroke-linecap="round"
+                    stroke-linejoin="round" />
+                </svg>
+              </span>
+              <span class="event__body">
+                <span class="event__title">
+                  None
+                  <span class="badge-status">[Coming Soon]</span>
+                </span>
+                <!-- <span class="event__meta">Security · Team event · 2025</span> -->
+                <!-- <span class="event__desc">กำลังเรียบเรียงเนื้อหาและ Writeup สำหรับเคสนี้... โปรดรอติดตามชมเร็ว ๆ
+                  นี้</span> -->
+                <span class="event__cta event__cta--pending">🔒 Record in progress...</span>
+              </span>
+            </a>
+
+            <!-- <a class="event" href="experiences/detail-template.html">
             <span class="event__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" focusable="false">
                 <path d="M12 2 4 5v6c0 5 3.4 9.3 8 11 4.6-1.7 8-6 8-11V5l-8-3Z" fill="#2b6cb0" stroke="#0b2545" stroke-width="1.4"/>
@@ -301,173 +304,122 @@
               <span class="event__desc">Solved web-exploitation and forensics challenges under time pressure, working as part of a two-person team.</span>
               <span class="event__cta">Open record →</span>
             </span>
-          </a>
+          </a> -->
 
-          <a class="event" href="experiences/detail-template.html">
-            <span class="event__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false">
-                <rect x="2" y="4" width="20" height="16" rx="2" fill="#111827" stroke="#000" stroke-width="1.4"/>
-                <path d="m6.5 9 2.5 3-2.5 3M12 15h5" fill="none" stroke="#4ade80" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-            </span>
-            <span class="event__body">
-              <span class="event__title">Programming Bootcamp / Camp</span>
-              <span class="event__meta">Training · 5 days · 2024</span>
-              <span class="event__desc">Intensive algorithmic training — graphs, dynamic programming, and contest strategy with daily practice rounds.</span>
-              <span class="event__cta">Open record →</span>
-            </span>
-          </a>
+          </div>
+        </div>
 
-          <a class="event" href="experiences/detail-template.html">
-            <span class="event__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false">
-                <path d="M7 3h10v5a5 5 0 0 1-10 0V3Z" fill="#f6c445" stroke="#6b4a00" stroke-width="1.4"/>
-                <path d="M7 5H4v2a3 3 0 0 0 3 3M17 5h3v2a3 3 0 0 1-3 3" fill="none" stroke="#6b4a00" stroke-width="1.4"/>
-                <path d="M11 13h2v4h3v3H8v-3h3v-4Z" fill="#c99a2e" stroke="#6b4a00" stroke-width="1.4"/>
-              </svg>
-            </span>
-            <span class="event__body">
-              <span class="event__title">University Programming Contest</span>
-              <span class="event__meta">Competition · Individual · 2024</span>
-              <span class="event__desc">Placed in the top tier solving data-structure problems in C++ against teams from across the faculty.</span>
-              <span class="event__cta">Open record →</span>
-            </span>
-          </a>
-
-          <a class="event" href="experiences/detail-template.html">
-            <span class="event__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" focusable="false">
-                <rect x="3" y="5" width="18" height="16" rx="2" fill="#fff" stroke="#0b2545" stroke-width="1.4"/>
-                <rect x="3" y="5" width="18" height="5" fill="#2b6cb0" stroke="#0b2545" stroke-width="1.4"/>
-                <path d="M8 3v4M16 3v4" stroke="#0b2545" stroke-width="1.6" stroke-linecap="round"/>
-                <rect x="7" y="13" width="4" height="3" fill="#93c5fd"/>
-                <rect x="13" y="13" width="4" height="3" fill="#93c5fd"/>
-              </svg>
-            </span>
-            <span class="event__body">
-              <span class="event__title">Tech Open House — Volunteer</span>
-              <span class="event__meta">Activity · Campus · 2024</span>
-              <span class="event__desc">Ran a booth introducing high-school students to programming fundamentals and basic security hygiene.</span>
-              <span class="event__cta">Open record →</span>
-            </span>
-          </a>
-
+        <div class="win-status" aria-hidden="true">
+          <span class="win-status__cell win-status__cell--grow">4 record(s)</span>
+          <span class="win-status__cell">Read-only</span>
         </div>
       </div>
+    </section>
 
-      <div class="win-status" aria-hidden="true">
-        <span class="win-status__cell win-status__cell--grow">4 record(s)</span>
-        <span class="win-status__cell">Read-only</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================================================================
+    <!-- ===================================================================
        SECTION 5 — CONTACT
        =================================================================== -->
-  <section class="section" id="contact" aria-labelledby="contact-title">
-    <h2 class="visually-hidden" id="contact-title">Contact</h2>
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <h2 class="visually-hidden" id="contact-title">Contact</h2>
 
-    <div class="window" data-window>
-      <div class="window__titlebar">
-        <span class="window__icon" aria-hidden="true">✉️</span>
-        <span class="window__title">New Message — Mail</span>
-        <div class="window__controls">
-          <button class="win-btn" type="button" data-win="min" title="Minimize" aria-label="Minimize window">_</button>
-          <button class="win-btn" type="button" data-win="max" title="Maximize" aria-label="Maximize window">□</button>
-          <button class="win-btn" type="button" data-win="close" title="Close" aria-label="Close window">✕</button>
+      <div class="window" data-window>
+        <div class="window__titlebar">
+          <span class="window__icon" aria-hidden="true">📞</span>
+          <span class="window__title">Contacts</span>
+          <div class="window__controls">
+            <button class="win-btn" type="button" data-win="min" title="Minimize"
+              aria-label="Minimize window">_</button>
+            <button class="win-btn" type="button" data-win="max" title="Maximize"
+              aria-label="Maximize window">□</button>
+            <button class="win-btn" type="button" data-win="close" title="Close" aria-label="Close window">✕</button>
+          </div>
         </div>
-      </div>
 
-      <div class="window__toolbar">
+        <!-- <div class="window__toolbar">
         <a class="btn95" href="mailto:your.email@example.com">
           <span aria-hidden="true">📤</span> Send
         </a>
         <span class="btn95" aria-hidden="true"><span>📎</span> Attach</span>
-      </div>
+      </div> -->
 
-      <div class="window__body window__body--flush">
-        <div class="mail__head">
-          <div class="mail__row">
+        <div class="window__body window__body--flush">
+          <div class="mail__head">
+            <!-- <div class="mail__row">
             <span class="mail__label">From:</span>
             <span class="mail__value">Pugam — Computer Engineering Student</span>
-          </div>
-          <div class="mail__row">
+          </div> -->
+            <!-- <div class="mail__row">
             <span class="mail__label">To:</span>
-            <!-- EDIT: your email -->
+            /* EDIT: your email */
             <span class="mail__value"><a href="mailto:your.email@example.com">your.email@example.com</a></span>
-          </div>
-          <div class="mail__row">
+          </div> -->
+            <!-- <div class="mail__row">
             <span class="mail__label">Subject:</span>
             <span class="mail__value">Hello — let's build something</span>
+          </div> -->
+          </div>
+
+          <div class="mail__compose">
+            <p>
+              Thanks for stopping by! For internships, project collaborations,
+              or just a quick chat, feel free to connect with me through any of the channels below.
+            </p>
+            <p style="margin-bottom:0"><b>— PU101</b></p>
+
+            <div class="contact-grid">
+              <!-- EDIT: replace every link below with your real profiles -->
+
+              <a class="contact-card" href="https://github.com/Pu-Chanawat" target="_blank" rel="noopener noreferrer">
+                <span class="contact-card__icon" aria-hidden="true">GH</span>
+                <span>
+                  <span class="contact-card__label">GitHub</span>
+                  <span class="contact-card__value">github.com/Pu-Chanawat</span>
+                </span>
+              </a>
+
+              <a class="contact-card" href="https://web.facebook.com/chanavat.chobtumkit/" target="_blank"
+                rel="noopener noreferrer">
+                <span class="contact-card__icon" aria-hidden="true">FB</span>
+                <span>
+                  <span class="contact-card__label">Social</span>
+                  <span class="contact-card__value">facebook.com/chanavat.chobtumkit</span>
+                </span>
+              </a>
+
+              <a class="contact-card" href="https://www.instagram.com/Pu_Chanawat/" target="_blank"
+                rel="noopener noreferrer">
+                <span class="contact-card__icon" aria-hidden="true">IG</span>
+                <span>
+                  <span class="contact-card__label">Instagram</span>
+                  <span class="contact-card__value">instagram.com/Pu_Chanawat</span>
+                </span>
+              </a>
+
+            </div>
           </div>
         </div>
 
-        <div class="mail__compose">
-          <p>
-            Thanks for stopping by my desktop. Whether it's an internship, a project
-            collaboration, a CTF team, or just a question about something I wrote here —
-            my inbox is open. I usually reply within a day or two.
-          </p>
-          <p style="margin-bottom:0"><b>— Pugam</b></p>
-
-          <div class="contact-grid">
-            <!-- EDIT: replace every link below with your real profiles -->
-            <a class="contact-card" href="mailto:your.email@example.com">
-              <span class="contact-card__icon" aria-hidden="true">@</span>
-              <span>
-                <span class="contact-card__label">Email</span>
-                <span class="contact-card__value">your.email@example.com</span>
-              </span>
-            </a>
-
-            <a class="contact-card" href="https://github.com/" target="_blank" rel="noopener noreferrer">
-              <span class="contact-card__icon" aria-hidden="true">GH</span>
-              <span>
-                <span class="contact-card__label">GitHub</span>
-                <span class="contact-card__value">github.com/yourusername</span>
-              </span>
-            </a>
-
-            <a class="contact-card" href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
-              <span class="contact-card__icon" aria-hidden="true">in</span>
-              <span>
-                <span class="contact-card__label">LinkedIn</span>
-                <span class="contact-card__value">linkedin.com/in/yourusername</span>
-              </span>
-            </a>
-
-            <a class="contact-card" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
-              <span class="contact-card__icon" aria-hidden="true">fb</span>
-              <span>
-                <span class="contact-card__label">Social</span>
-                <span class="contact-card__value">facebook.com/yourusername</span>
-              </span>
-            </a>
-          </div>
+        <div class="win-status" aria-hidden="true">
+          <span class="win-status__cell win-status__cell--grow">Ready</span>
+          <span class="win-status__cell">Online</span>
         </div>
       </div>
+    </section>
 
-      <div class="win-status" aria-hidden="true">
-        <span class="win-status__cell win-status__cell--grow">Ready</span>
-        <span class="win-status__cell">Online</span>
-      </div>
-    </div>
-  </section>
+  </main>
 
-</main>
-
-<!-- =====================================================================
+  <!-- =====================================================================
      Bottom deskbar — Start + live clock
      ===================================================================== -->
-<footer class="deskbar">
-  <button class="btn95" type="button" data-action="start">
-    <span aria-hidden="true">🪟</span> Start
-  </button>
-  <span class="deskbar__spacer"></span>
-  <span class="deskbar__clock" id="clock" aria-label="Current time">--:--</span>
-</footer>
+  <footer class="deskbar">
+    <button class="btn95" type="button" data-action="start">
+      <span aria-hidden="true">🪟</span> Start
+    </button>
+    <span class="deskbar__spacer"></span>
+    <span class="deskbar__clock" id="clock" aria-label="Current time">--:--</span>
+  </footer>
 
-<script src="script.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
+
 </html>

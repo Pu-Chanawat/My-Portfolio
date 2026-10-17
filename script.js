@@ -16,17 +16,17 @@
     [
       { cls: "term-prompt", text: "> " },
       { cls: "term-key",    text: "Name   :" },
-      { cls: "term-val",    text: " Pugam" }
+      { cls: "term-val",    text: " Chanawat Chobtumkit " }
     ],
     [
       { cls: "term-prompt", text: "> " },
       { cls: "term-key",    text: "Job    :" },
-      { cls: "term-val",    text: " Computer Engineering Student / Developer" }
+      { cls: "term-val",    text: " Computer Engineering Student / Developer " }
     ],
     [
       { cls: "term-prompt", text: "> " },
       { cls: "term-key",    text: "Slogan :" },
-      { cls: "term-val",    text: " Code with curiosity, build with care." }
+      { cls: "term-val",    text: " Code with curiosity, build with care. " }
     ],
     [],
     [{ cls: "term-muted", text: "> ready. scroll to explore." }]
