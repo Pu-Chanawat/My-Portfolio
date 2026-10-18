@@ -1,0 +1,10 @@
+
+1
+#include <bits/stdc++.h>
+
+2
+// แทนที่จะใช้ #include <bits/stdc++.h> ให้เปลี่ยนเป็น:
+#include <iostream>  // สำหรับ cin, cout
+#include <vector>    // สำหรับ vector
+#include <string>    // สำหรับ string
+#include <algorithm> // สำหรับ sort, min, max

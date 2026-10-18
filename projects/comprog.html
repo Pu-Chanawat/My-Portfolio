@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Comprog Solutions — Pugam</title>
-<meta name="description" content="Competitive programming solutions in C++ — source code and problem statements.">
+<meta name="description" content="C++ solutions for every computer-programming problem I have solved — grader sets, mock midterms and CEDT Ovenbreak.">
 <meta name="color-scheme" content="light">
 
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' fill='%23008080'/><rect x='4' y='6' width='12' height='6' fill='%23e8a71c'/><rect x='4' y='10' width='24' height='16' fill='%23f5c542'/></svg>">
@@ -21,11 +21,11 @@
   <div class="taskbar__inner">
     <span class="taskbar__brand">
       <span class="taskbar__brand-icon" aria-hidden="true">🖥️</span>
-      <span>Portfolio&nbsp;OS</span>
+      <span>My Profile</span>
     </span>
     <span class="crumbs">
       <a class="btn95" href="../index.html"><span aria-hidden="true">◀</span> Back to Desktop</a>
-      <span class="crumbs__path">C:\PORTFOLIO\Projects\Comprog_Solutions</span>
+      <span class="crumbs__path">C:\PORTFOLIO\ComputerProgramming</span>
     </span>
   </div>
 </header>
@@ -35,7 +35,7 @@
   <!-- ===================================================================
        Problem list
        =================================================================== -->
-  <section class="window" aria-labelledby="list-title">
+  <section class="window" data-window aria-labelledby="list-title">
     <div class="window__titlebar">
       <span class="window__icon" aria-hidden="true">📁</span>
       <span class="window__title" id="list-title">Comprog Solutions — Problem Set</span>
@@ -49,32 +49,43 @@
     <div class="window__toolbar">
       <span class="pathbox">
         <span aria-hidden="true">📂</span>
-        <span>C:\PORTFOLIO\Projects\Comprog_Solutions</span>
+        <span>C:\PORTFOLIO\ComputerProgramming</span>
       </span>
+
+      <div class="filters">
+        <label class="visually-hidden" for="q">Search problems</label>
+        <input class="searchbox" id="q" type="search" placeholder="Search problems…"
+               title="Filter by problem name, set or topic"
+               autocomplete="off" spellcheck="false">
+
+        <label class="visually-hidden" for="groupFilter">Filter by problem set</label>
+        <select class="searchbox searchbox--select" id="groupFilter">
+          <option value="">All sets</option>
+        </select>
+      </div>
     </div>
 
     <div class="window__body window__body--flush">
       <div class="table-scroll">
         <table class="problem-table">
           <caption class="visually-hidden">
-            Competitive programming problems, with source code and statement PDFs
+            Every solved C++ problem, grouped by set, with a source viewer
           </caption>
           <thead>
             <tr>
               <th scope="col" class="col-id">ID</th>
               <th scope="col">Problem</th>
-              <th scope="col">Level</th>
+              <th scope="col" class="col-level">Level</th>
               <th scope="col" class="col-actions">Actions</th>
             </tr>
           </thead>
-          <!-- rows are rendered by the script below -->
           <tbody id="problemRows"></tbody>
         </table>
       </div>
     </div>
 
     <div class="win-status" aria-hidden="true">
-      <span class="win-status__cell win-status__cell--grow"><span id="rowCount">0</span> object(s)</span>
+      <span class="win-status__cell win-status__cell--grow" id="rowCount" aria-live="polite">0 object(s)</span>
       <span class="win-status__cell">Local disk (C:)</span>
     </div>
   </section>
@@ -82,7 +93,7 @@
   <!-- ===================================================================
        Source viewer
        =================================================================== -->
-  <section class="window code-window" id="viewer" aria-labelledby="viewer-title">
+  <section class="window code-window" data-window id="viewer" aria-labelledby="viewer-title">
     <div class="window__titlebar">
       <span class="window__icon" aria-hidden="true">⌨️</span>
       <span class="window__title" id="viewer-title">Source Viewer</span>
@@ -101,8 +112,12 @@
         <span aria-hidden="true">📋</span> Copy code
       </button>
 
-      <a class="mini-btn" id="pdfBtn" href="#" download>
-        <span aria-hidden="true">📄</span> Download PDF
+      <a class="mini-btn" id="dlBtn" href="#" download>
+        <span aria-hidden="true">💾</span> Save .cpp
+      </a>
+
+      <a class="mini-btn" id="srcBtn" href="#" target="_blank" rel="noopener">
+        <span aria-hidden="true">↗</span> Source file
       </a>
     </div>
 
@@ -121,9 +136,10 @@
   </section>
 
   <div class="note-box">
-    <b>Tip:</b> problem-statement PDFs are looked up in <code>projects/pdf/</code>.
-    Drop your exported files there using the filenames listed in the table and the
-    download buttons will resolve automatically.
+    <b>About this page:</b> every row links to a real file inside
+    <code>ComputerProgramming/</code> in this repository — the list is generated
+    from those <code>.cpp</code> sources, so it stays in sync with the code I actually wrote.
+    Click any problem to read the full solution.
   </div>
 
   <div class="crumbs">
@@ -138,151 +154,12 @@
   <span class="deskbar__clock" id="clock" aria-label="Current time">--:--</span>
 </footer>
 
+<!-- problem list + code (generated from ComputerProgramming/**/*.cpp) -->
+<script src="comprog-data.js"></script>
+
 <script>
 (function () {
   "use strict";
-
-  /* ----------------------------------------------------------------
-     Problem data — add your own entries here.
-     `code` is plain C++ source; it is highlighted at render time.
-     Only use // line comments if you want the gutter to stay aligned.
-     ---------------------------------------------------------------- */
-  var PROBLEMS = [
-    {
-      id: "001",
-      title: "A + B",
-      topic: "Basic I/O",
-      level: "easy",
-      file: "001-a-plus-b.cpp",
-      pdf: "pdf/comprog-001-a-plus-b.pdf",
-      code: [
-        "// Problem 001: A + B",
-        "// Read two integers and print their sum.",
-        "#include <bits/stdc++.h>",
-        "using namespace std;",
-        "",
-        "int main() {",
-        "    ios::sync_with_stdio(false);",
-        "    cin.tie(nullptr);",
-        "",
-        "    long long a, b;",
-        "    if (!(cin >> a >> b)) return 0;",
-        "",
-        "    cout << a + b << \"\\n\";",
-        "    return 0;",
-        "}"
-      ].join("\n")
-    },
-    {
-      id: "002",
-      title: "Hello, World!",
-      topic: "Basic I/O",
-      level: "easy",
-      file: "002-hello-world.cpp",
-      pdf: "pdf/comprog-002-hello-world.pdf",
-      code: [
-        "// Problem 002: Hello, World!",
-        "#include <iostream>",
-        "using namespace std;",
-        "",
-        "int main() {",
-        "    cout << \"Hello, World!\" << endl;",
-        "    return 0;",
-        "}"
-      ].join("\n")
-    },
-    {
-      id: "003",
-      title: "Sum of N Numbers",
-      topic: "Loops",
-      level: "easy",
-      file: "003-sum-of-n.cpp",
-      pdf: "pdf/comprog-003-sum-of-n.pdf",
-      code: [
-        "// Problem 003: sum n integers read from stdin",
-        "#include <bits/stdc++.h>",
-        "using namespace std;",
-        "",
-        "int main() {",
-        "    int n;",
-        "    cin >> n;",
-        "",
-        "    long long total = 0;",
-        "    for (int i = 0; i < n; i++) {",
-        "        long long x;",
-        "        cin >> x;",
-        "        total += x;",
-        "    }",
-        "",
-        "    cout << total << \"\\n\";",
-        "    return 0;",
-        "}"
-      ].join("\n")
-    },
-    {
-      id: "004",
-      title: "Sorting an Array",
-      topic: "Sorting",
-      level: "medium",
-      file: "004-sorting.cpp",
-      pdf: "pdf/comprog-004-sorting.pdf",
-      code: [
-        "// Problem 004: sort n integers ascending",
-        "#include <bits/stdc++.h>",
-        "using namespace std;",
-        "",
-        "int main() {",
-        "    int n;",
-        "    cin >> n;",
-        "",
-        "    vector<int> a(n);",
-        "    for (int i = 0; i < n; i++) cin >> a[i];",
-        "",
-        "    sort(a.begin(), a.end());",
-        "",
-        "    for (int i = 0; i < n; i++) {",
-        "        if (i) cout << ' ';",
-        "        cout << a[i];",
-        "    }",
-        "    cout << \"\\n\";",
-        "    return 0;",
-        "}"
-      ].join("\n")
-    },
-    {
-      id: "005",
-      title: "Binary Search",
-      topic: "Divide & Conquer",
-      level: "hard",
-      file: "005-binary-search.cpp",
-      pdf: "pdf/comprog-005-binary-search.pdf",
-      code: [
-        "// Problem 005: binary search a sorted array",
-        "// Returns the index of target, or -1 when absent.",
-        "#include <bits/stdc++.h>",
-        "using namespace std;",
-        "",
-        "int main() {",
-        "    int n, target;",
-        "    cin >> n >> target;",
-        "",
-        "    vector<int> a(n);",
-        "    for (int i = 0; i < n; i++) cin >> a[i];",
-        "",
-        "    int lo = 0, hi = n - 1, found = -1;",
-        "    while (lo <= hi) {",
-        "        int mid = lo + (hi - lo) / 2;",
-        "        if (a[mid] == target) { found = mid; break; }",
-        "        if (a[mid] < target) lo = mid + 1;",
-        "        else                 hi = mid - 1;",
-        "    }",
-        "",
-        "    cout << found << \"\\n\";",
-        "    return 0;",
-        "}"
-      ].join("\n")
-    }
-  ];
 
   /* ----------------------------------------------------------------
      Minimal C++ highlighter (no dependencies)
@@ -345,102 +222,244 @@
   }
 
   /* ----------------------------------------------------------------
-     Rendering
+     Data
      ---------------------------------------------------------------- */
+  var PROBLEMS = (window.COMPROG_PROBLEMS || []).slice();
+
   var rowsEl     = document.getElementById("problemRows");
   var rowCountEl = document.getElementById("rowCount");
+  var searchEl   = document.getElementById("q");
+  var groupEl    = document.getElementById("groupFilter");
   var codeView   = document.getElementById("codeView");
   var codeGutter = document.getElementById("codeGutter");
   var codeName   = document.getElementById("codeName");
   var lineStat   = document.getElementById("lineStat");
-  var pdfBtn     = document.getElementById("pdfBtn");
+  var dlBtn      = document.getElementById("dlBtn");
+  var srcBtn     = document.getElementById("srcBtn");
   var copyBtn    = document.getElementById("copyBtn");
+  var listTitle  = document.getElementById("list-title");
 
   var current = null;
+  var currentRow = null;
+  var dlUrl = null;
 
-  function cell(text, className) {
+  var ROOT = "../ComputerProgramming/";
+
+  listTitle.textContent = "Comprog Solutions — " + PROBLEMS.length + " Problems";
+
+  /* one <option> per problem set, in the same order as the table */
+  var groups = [];
+  PROBLEMS.forEach(function (p) {
+    if (groups.indexOf(p.group) === -1) groups.push(p.group);
+  });
+  groups.forEach(function (g) {
+    var opt = document.createElement("option");
+    opt.value = g;
+    opt.textContent = g;
+    groupEl.appendChild(opt);
+  });
+
+  /* per-problem line counts, computed once */
+  function lineCountOf(problem) {
+    if (!problem._lines) {
+      problem._lines = problem.code.replace(/\n$/, "").split("\n").length;
+    }
+    return problem._lines;
+  }
+
+  function rawHref(path) {
+    return ROOT + path.split("/").map(encodeURIComponent).join("/");
+  }
+
+  /* ----------------------------------------------------------------
+     Rendering
+     ---------------------------------------------------------------- */
+  function matches(problem, term) {
+    if (!term) return true;
+    return (
+      problem.title.toLowerCase().indexOf(term) !== -1 ||
+      problem.group.toLowerCase().indexOf(term) !== -1 ||
+      problem.topic.toLowerCase().indexOf(term) !== -1 ||
+      problem.file.toLowerCase().indexOf(term) !== -1 ||
+      problem.id.indexOf(term) !== -1
+    );
+  }
+
+  function makeCell(text, className) {
     var td = document.createElement("td");
     if (className) td.className = className;
     td.textContent = text;
     return td;
   }
 
-  function renderTable() {
-    PROBLEMS.forEach(function (p) {
-      var tr = document.createElement("tr");
-      tr.dataset.id = p.id;
+  function makeGroupRow(name, count) {
+    var tr = document.createElement("tr");
+    tr.className = "group-row";
+    var td = document.createElement("td");
+    td.colSpan = 4;
+    td.appendChild(document.createTextNode(name));
+    var badge = document.createElement("span");
+    badge.className = "group-row__count";
+    badge.textContent = count + (count === 1 ? " problem" : " problems");
+    td.appendChild(badge);
+    tr.appendChild(td);
+    return tr;
+  }
 
-      tr.appendChild(cell(p.id, "col-id"));
+  function makeRow(problem) {
+    var tr = document.createElement("tr");
+    tr.dataset.id = problem.id;
 
-      var nameCell = document.createElement("td");
-      var strong = document.createElement("strong");
-      strong.textContent = p.title;
-      nameCell.appendChild(strong);
+    tr.appendChild(makeCell(problem.id, "col-id"));
+
+    var nameCell = document.createElement("td");
+    var strong = document.createElement("strong");
+    strong.textContent = problem.title;
+    nameCell.appendChild(strong);
+    if (problem.topic) {
       var topic = document.createElement("div");
       topic.style.fontSize = "12px";
       topic.style.color = "#5a5a5a";
-      topic.textContent = p.topic;
+      topic.textContent = problem.topic;
       nameCell.appendChild(topic);
-      tr.appendChild(nameCell);
+    }
+    tr.appendChild(nameCell);
 
-      var levelCell = document.createElement("td");
+    var levelCell = document.createElement("td");
+    levelCell.className = "col-level";
+    if (problem.level) {
       var pill = document.createElement("span");
-      pill.className = "pill pill--" + p.level;
-      pill.textContent = p.level.toUpperCase();
+      pill.className = "pill pill--" + problem.level;
+      pill.textContent = problem.level.toUpperCase();
       levelCell.appendChild(pill);
-      tr.appendChild(levelCell);
+    } else {
+      // no star rating on exam-style sets — show a quiet placeholder
+      var none = document.createElement("span");
+      none.className = "level-unknown";
+      none.textContent = "—";
+      none.setAttribute("aria-label", "not graded");
+      levelCell.appendChild(none);
+    }
+    tr.appendChild(levelCell);
 
-      var actions = document.createElement("td");
-      actions.className = "col-actions";
+    var actions = document.createElement("td");
+    actions.className = "col-actions";
 
-      var view = document.createElement("button");
-      view.type = "button";
-      view.className = "mini-btn";
-      view.textContent = "View code";
-      view.addEventListener("click", function () {
-        show(p, tr);
-      });
-      actions.appendChild(view);
+    var view = document.createElement("button");
+    view.type = "button";
+    view.className = "mini-btn";
+    view.innerHTML =
+      '<span class="btn-label btn-label--full">View code</span>' +
+      '<span class="btn-label btn-label--short">View</span>';
+    actions.appendChild(view);
+    tr.appendChild(actions);
 
-      actions.appendChild(document.createTextNode(" "));
-
-      var pdf = document.createElement("a");
-      pdf.className = "mini-btn";
-      pdf.href = p.pdf;
-      pdf.setAttribute("download", "");
-      pdf.textContent = "PDF";
-      actions.appendChild(pdf);
-
-      tr.appendChild(actions);
-      rowsEl.appendChild(tr);
+    tr.addEventListener("click", function (event) {
+      if (event.target.closest("a")) return;
+      show(problem, tr);
     });
 
-    rowCountEl.textContent = String(PROBLEMS.length);
+    return tr;
   }
 
+  function renderTable() {
+    var term = searchEl.value.trim().toLowerCase();
+    var only = groupEl.value;
+
+    var filtered = PROBLEMS.filter(function (p) {
+      return (!only || p.group === only) && matches(p, term);
+    });
+
+    var perGroup = {};
+    filtered.forEach(function (p) {
+      perGroup[p.group] = (perGroup[p.group] || 0) + 1;
+    });
+
+    rowsEl.textContent = "";
+
+    if (!filtered.length) {
+      var tr = document.createElement("tr");
+      tr.className = "empty-row";
+      var td = document.createElement("td");
+      td.colSpan = 4;
+      td.textContent = PROBLEMS.length
+        ? "No problems match that search."
+        : "No solutions loaded yet.";
+      tr.appendChild(td);
+      rowsEl.appendChild(tr);
+    } else {
+      var lastGroup = null;
+      filtered.forEach(function (p) {
+        if (p.group !== lastGroup) {
+          lastGroup = p.group;
+          rowsEl.appendChild(makeGroupRow(p.group, perGroup[p.group]));
+        }
+        rowsEl.appendChild(makeRow(p));
+      });
+    }
+
+    rowCountEl.textContent =
+      filtered.length === PROBLEMS.length
+        ? filtered.length + " object(s)"
+        : filtered.length + " of " + PROBLEMS.length + " object(s)";
+
+    /* keep the open problem highlighted after a re-render */
+    if (current) {
+      var active = rowsEl.querySelector('[data-id="' + current.id + '"]');
+      if (active) {
+        active.classList.add("is-active");
+        currentRow = active;
+      } else {
+        currentRow = null;
+      }
+    }
+  }
+
+  /* ----------------------------------------------------------------
+     Viewer
+     ---------------------------------------------------------------- */
   function lineNumbers(count) {
     var out = [];
     for (var i = 1; i <= count; i++) out.push(String(i));
     return out.join("\n");
   }
 
+  function setDownload(problem) {
+    if (dlUrl) {
+      URL.revokeObjectURL(dlUrl);
+      dlUrl = null;
+    }
+    if (!URL.createObjectURL) {
+      dlBtn.setAttribute("hidden", "");
+      return;
+    }
+    dlUrl = URL.createObjectURL(
+      new Blob([problem.code], { type: "text/plain;charset=utf-8" })
+    );
+    dlBtn.href = dlUrl;
+    dlBtn.setAttribute("download", problem.file);
+  }
+
   function show(problem, row) {
     current = problem;
+    currentRow = row || null;
 
     codeView.innerHTML = highlightCpp(problem.code);
 
-    var lineCount = problem.code.split("\n").length;
-    codeGutter.textContent = lineNumbers(lineCount);
+    var lines = lineCountOf(problem);
+    codeGutter.textContent = lineNumbers(lines);
 
     codeName.textContent = problem.file;
-    lineStat.textContent = lineCount + " lines";
+    lineStat.textContent = lines + (lines === 1 ? " line" : " lines");
 
-    pdfBtn.href = problem.pdf;
-    pdfBtn.setAttribute("download", problem.file.replace(/\.cpp$/, ".pdf"));
+    setDownload(problem);
+    srcBtn.href = rawHref(problem.path);
 
-    Array.prototype.forEach.call(rowsEl.children, function (tr) {
-      tr.classList.toggle("is-active", tr === row);
-    });
+    Array.prototype.forEach.call(
+      rowsEl.querySelectorAll("tr"),
+      function (tr) { tr.classList.remove("is-active"); }
+    );
+    if (row) row.classList.add("is-active");
   }
 
   function copyText(text, onDone) {
@@ -473,10 +492,13 @@
     });
   });
 
+  searchEl.addEventListener("input", renderTable);
+  groupEl.addEventListener("change", renderTable);
+
   /* boot */
   renderTable();
   if (PROBLEMS.length) {
-    show(PROBLEMS[0], rowsEl.firstElementChild);
+    show(PROBLEMS[0], rowsEl.querySelector('[data-id="' + PROBLEMS[0].id + '"]'));
   }
 })();
 </script>

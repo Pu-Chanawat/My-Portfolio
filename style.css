@@ -924,6 +924,65 @@ pre.code-block {
 
 .copy-flash { color: #0a0; font-weight: 700; }
 
+/* --- comprog: toolbar filters, group rows, empty state --- */
+.window__toolbar { flex-wrap: wrap; }
+.window__toolbar .pathbox { flex: 1 1 200px; }
+.pathbox > span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.filters {
+  display: flex;
+  gap: 6px;
+  flex: 1 1 380px;
+  min-width: 0;
+  justify-content: flex-end;
+}
+
+.searchbox {
+  font: 13px/1.4 var(--font-ui);
+  padding: 3px 7px;
+  color: var(--ink);
+  background: var(--face-white);
+  border: 2px solid;
+  border-color: var(--face-shadow) var(--face-white) var(--face-white) var(--face-shadow);
+  min-width: 0;
+  flex: 1 1 140px;
+}
+.searchbox:focus {
+  outline: 1px dotted var(--ink);
+  outline-offset: -4px;
+}
+.searchbox--select { flex: 0 1 230px; min-width: 0; cursor: pointer; }
+
+.problem-table tbody tr:not(.group-row) { cursor: pointer; }
+.problem-table .group-row:hover td { background: var(--face); }
+
+.problem-table .group-row td {
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  background: var(--face);
+  border-top: 2px solid var(--face-shadow);
+  border-bottom: 1px solid var(--face-dark);
+}
+.group-row__count { font-weight: 400; color: var(--ink-soft); margin-left: 7px; }
+
+.problem-table .empty-row td {
+  padding: 28px 12px;
+  text-align: center;
+  color: var(--ink-soft);
+  background: var(--paper-alt);
+}
+
+.problem-table .col-level { width: 88px; }
+.level-unknown { color: #9a9a9a; font-size: 15px; }
+
+/* shortened action label, swapped in on narrow screens */
+.btn-label--short { display: none; }
+
 /* --- detail template (experience) --- */
 .detail-hero {
   padding: 0;
@@ -1034,9 +1093,21 @@ pre.code-block {
 
   .taskbar__brand span:last-child { display: none; }
 
-  /* let wide tables scroll instead of breaking the layout */
+  /* stack the window toolbar: path on its own row, filters below */
+  .window__toolbar .pathbox { flex: 1 1 100%; }
+  .filters { flex: 1 1 100%; }
+  .searchbox--select { flex: 1 1 46%; }
+
+  /* keep every column on screen instead of scrolling sideways */
   .table-scroll { overflow-x: auto; }
-  .problem-table { min-width: 460px; }
+  .problem-table { min-width: 0; }
+  .problem-table td, .problem-table th { padding: 6px 6px; }
+  .problem-table .col-id { width: 34px; }
+  .problem-table .col-level { width: 58px; }
+  .problem-table .col-actions { width: auto; }
+  .btn-label--full { display: none; }
+  .btn-label--short { display: inline; }
+  .mini-btn { padding: 2px 7px; }
 }
 
 /* ---------------------------------------------------------------

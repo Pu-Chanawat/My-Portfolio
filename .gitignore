@@ -1,0 +1,13 @@
+# --- C++ build artifacts (ComputerProgramming/) ---
+# ~1.2 GB of compiler output; only the .cpp sources belong in the repo.
+*.exe
+*.obj
+*.pdb
+*.ilk
+*.o
+*.out
+
+# OS noise
+Thumbs.db
+.DS_Store
+desktop.ini
